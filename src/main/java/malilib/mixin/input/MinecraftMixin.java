@@ -2,6 +2,7 @@ package malilib.mixin.input;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -18,6 +19,7 @@ public abstract class MinecraftMixin implements MinecraftClientAccessor
 {
     @Shadow private boolean actionKeyF3;
 
+    @Unique
     @Override
     public void setActionKeyF3(boolean value)
     {
@@ -29,16 +31,6 @@ public abstract class MinecraftMixin implements MinecraftClientAccessor
     private void onKeyboardInput(CallbackInfo ci)
     {
         if (((InputDispatcherImpl) Registry.INPUT_DISPATCHER).onKeyInput())
-        {
-            ci.cancel();
-        }
-    }
-
-    @Inject(method = "runTickMouse", cancellable = true,
-            at = @At(value = "INVOKE", target = "Lorg/lwjgl/input/Mouse;getEventButton()I", remap = false))
-    private void onMouseInput(CallbackInfo ci)
-    {
-        if (((InputDispatcherImpl) Registry.INPUT_DISPATCHER).onMouseInput())
         {
             ci.cancel();
         }

@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
+import net.minecraftforge.fml.common.Loader;
 
 import malilib.MaLiLibConfigs;
 import malilib.action.ActionContext;
@@ -35,7 +36,7 @@ public class ConfigUtils
 {
     public static Path getConfigDirectory()
     {
-        return FileUtils.getMinecraftDirectory().resolve("config");
+        return Loader.instance().getConfigDir().toPath();
     }
 
     /**

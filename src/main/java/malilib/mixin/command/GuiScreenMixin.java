@@ -15,7 +15,7 @@ import malilib.registry.Registry;
 @Mixin(GuiScreen.class)
 public abstract class GuiScreenMixin extends Gui
 {
-    @Shadow protected Minecraft mc;
+    @Shadow public Minecraft mc;
 
     @Inject(method = "sendChatMessage(Ljava/lang/String;Z)V", at = @At(
             value = "INVOKE",

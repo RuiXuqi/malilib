@@ -3,7 +3,6 @@ package malilib.util.game;
 import java.util.Optional;
 import com.google.common.collect.ImmutableList;
 
-import malilib.mixin.access.DataFixerMixin;
 import malilib.util.game.wrap.GameWrap;
 
 public class MinecraftVersion
@@ -256,5 +255,5 @@ public class MinecraftVersion
         return MC_UNKNOWN;
     }
 
-    public static final MinecraftVersion CURRENT_VERSION = getOrCreateVersionFromDataVersion(((DataFixerMixin) GameWrap.getClient().getDataFixer()).malilib$getVersion());
+    public static final MinecraftVersion CURRENT_VERSION = getOrCreateVersionFromDataVersion(GameWrap.getClient().getDataFixer().version);
 }

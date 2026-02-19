@@ -1,22 +1,19 @@
 {
-	"required": true,
 	"package": "malilib.mixin",
+	"required": true,
+	"refmap": "mixins.malilib.refmap.json",
+	"target": "@env(DEFAULT)",
+	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
-	"minVersion": "0.8",
 	"client": [
 		"access.AbstractHorseMixin",
-		"access.DataFixerMixin",
-		"access.GuiContainerMixin",
 		"access.NBTBaseMixin",
 		"access.NBTTagLongArrayMixin",
 		"command.GuiScreenMixin",
 		"command.TabCompleterMixin",
 		"event.MinecraftMixin",
-		"input.GuiScreenMixin",
 		"input.MinecraftMixin",
-		"network.MixinNetHandlerPlayClient",
-		"render.EntityRendererMixin",
-		"render.GuiScreenMixin"
+		"network.MixinNetHandlerPlayClient"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -14,6 +14,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import malilib.util.data.Identifier;
 import malilib.util.world.BlockState;
@@ -108,8 +110,9 @@ public class RegistryUtils
     {
         List<Class<? extends Entity>> blocks = new ArrayList<>();
 
-        for (Class<? extends Entity> clazz : EntityList.REGISTRY)
+        for (EntityEntry entry : ForgeRegistries.ENTITIES)
         {
+            Class<? extends Entity> clazz = entry.getEntityClass();
             blocks.add(clazz);
         }
 

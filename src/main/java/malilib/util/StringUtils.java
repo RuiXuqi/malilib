@@ -6,12 +6,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import javax.annotation.Nullable;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.ModContainer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
@@ -73,11 +72,11 @@ public class StringUtils
     {
         try
         {
-            Optional<ModContainer> container = FabricLoader.getInstance().getModContainer(modId);
+            ModContainer container = Loader.instance().getIndexedModList().get(modId);
 
-            if (container.isPresent())
+            if (container != null)
             {
-                return container.get().getMetadata().getVersion().getFriendlyString();
+                return container.getDisplayVersion();
             }
         }
         catch (Exception ignore) {}

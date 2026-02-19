@@ -21,7 +21,7 @@ public abstract class TabCompleterMixin
             target = "Lnet/minecraft/client/network/NetHandlerPlayClient;sendPacket(Lnet/minecraft/network/Packet;)V"))
     private void onRequestCompletions(String prefix, CallbackInfo ci)
     {
-        if (prefix.length() >= 1)
+        if (!prefix.isEmpty())
         {
             Registry.CLIENT_COMMAND_HANDLER.autoComplete(prefix);
         }
